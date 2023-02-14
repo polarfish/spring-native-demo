@@ -18,7 +18,7 @@ docker run --name test-mysql-8 -e MYSQL_ROOT_PASSWORD=root -p 3306:3306 -d mysql
 
 Build the application:
 ```shell
-./mvnw -Pnative clean package
+mvn -Pnative native:compile
 ```
 
 Then run the application:
