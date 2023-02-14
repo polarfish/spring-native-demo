@@ -1,32 +1,43 @@
+<!DOCTYPE html>
 <html>
 <head>
-  <style>
-    table {
-      width: 400px;
-      text-align: center;
-    }
-  </style>
+  <meta charset="UTF-8">
+  <title>Notes</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+        crossorigin="anonymous">
 </head>
-
 <body>
-<div id="manageNotesDiv">
-  <input id="createNoteContent" type="text" value="test note">
-  <button id="createNoteButton" onclick="createNote()">Create note</button>
-  <button id="deleteAllNotesButton" onclick="deleteAllNotes()">Delete all notes</button>
+<div class="container mt-3">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="form-group">
+        <label for="createNoteContent">Note</label>
+        <input id="createNoteContent" type="text" class="form-control" value="test note">
+      </div>
+      <div class="form-group">
+        <button id="createNoteButton" class="btn btn-primary" onclick="createNote()">Create note</button>
+        <button id="deleteAllNotesButton" class="btn btn-danger ml-3" onclick="deleteAllNotes()">Delete all notes</button>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <div id="printNotesDiv">
+        <table id="printNotesTable" class="table">
+          <thead>
+          <tr>
+            <th>id</th>
+            <th>note</th>
+          </tr>
+          </thead>
+          <tbody>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
 </div>
-<div id="printNotesDiv">
-  <table id="printNotesTable">
-    <thead>
-    <tr>
-      <th>id</th>
-      <th>note</th>
-    </tr>
-    </thead>
-    <tbody>
-    </tbody>
-  </table>
-</div>
-</body>
 <script>
   function createNote() {
     fetch("/notes", {
@@ -61,4 +72,5 @@
 
   printNotes()
 </script>
+</body>
 </html>
